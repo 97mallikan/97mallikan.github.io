@@ -737,38 +737,41 @@
 		
 		<div class="card">
 		  <div class="card-header">
-			<div class="card-title">Feature Extraction Comparator for Animal Classification</div>
-			<div class="card-meta">Computer Vision · Feature Engineering · Pattern Recognition</div>
+		    <div class="card-title">Feature Extraction Comparator for Animal Classification</div>
+		    <div class="card-meta">Computer Vision · Feature Engineering · Pattern Recognition</div>
 		  </div>
+		
 		  <div class="card-body">
-			Developed an animal image classification system using handcrafted feature extraction and neural
-			classification to distinguish between 32 animal species, targeting applications in wildlife
-			monitoring and livestock management.
-
-			<ul class="bullet-list">
-			  <li>Used a dataset of 32 animal classes (e.g., antelope, bear, elephant, tiger, wolf, zebra) with
-				  50 training and 10 testing images per class (1600 train / 320 test images).</li>
-			  <li>Extracted Local Binary Pattern (LBP) features from resized 64×128 grayscale images, followed by
-				  Histogram of Oriented Gradients (HOG) for richer texture–shape descriptors.</li>
-			  <li>Trained a Multilayer Perceptron (MLP) with 3780 input features, 50 hidden units, and 32 output
-				  neurons to classify species based on the combined feature representation.</li>
-			  <li>Evaluated performance using true positive and false positive rates per class, visualized via
-				  comparative bar graphs to analyze strengths and confusion across species.</li>
-			</ul>
-
-			<!-- Result images row -->
-			  <div class="small-block">
-			    <img src="img/animal-bargraph.png">
-			    <figcaption>TPR vs FPR</figcaption>
-			  </div>
-
-			<div class="tag-row">
-			  <span class="tag">LBP</span>
-			  <span class="tag">HOG</span>
-			  <span class="tag">MLP</span>
-			  <span class="tag">Image Classification</span>
-			  <span class="tag">MATLAB / Python</span>
-			</div>
+		    Developed an animal image classification system using handcrafted feature extraction and neural
+		    classification to distinguish between 32 animal species, targeting applications in wildlife
+		    monitoring and livestock management.
+		
+		    <ul class="bullet-list" style="margin-top: 0.6rem;">
+		      <li>Used a dataset of 32 animal classes (e.g., antelope, bear, elephant, tiger, wolf, zebra) with
+		          50 training and 10 testing images per class (1600 train / 320 test images).</li>
+		      <li>Extracted Local Binary Pattern (LBP) features from resized 64×128 grayscale images, followed by
+		          Histogram of Oriented Gradients (HOG) for richer texture–shape descriptors.</li>
+		      <li>Trained a Multilayer Perceptron (MLP) with 3780 input features, 50 hidden units, and 32 output
+		          neurons to classify species based on the combined feature representation.</li>
+		      <li>Evaluated performance using true positive and false positive rates per class, visualized via
+		          comparative bar graphs to analyze strengths and confusion across species.</li>
+		    </ul>
+		
+		    <!-- centered small image -->
+		    <div class="image-center">
+		      <div class="small-block">
+		        <img src="img/animal-bargraph.png" alt="TPR vs FPR bar graph">
+		        <figcaption>TPR vs FPR</figcaption>
+		      </div>
+		    </div>
+		
+		    <div class="tag-row">
+		      <span class="tag">LBP</span>
+		      <span class="tag">HOG</span>
+		      <span class="tag">MLP</span>
+		      <span class="tag">Image Classification</span>
+		      <span class="tag">MATLAB / Python</span>
+		    </div>
 		  </div>
 		</div>
 		
