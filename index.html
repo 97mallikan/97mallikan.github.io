@@ -426,8 +426,10 @@
       margin: 1rem 0;
     }
 
+    /* Responsive box that never exceeds card width */
     .small-block {
-      width: 200px;
+      width: 100%;
+      max-width: 200px;           /* target size */
       padding: 10px;
       border: 1px solid rgba(148, 163, 184, 0.35);
       border-radius: 8px;
@@ -435,10 +437,12 @@
       text-align: center;
     }
 
+    /* Make sure image itself never overflows the small-block */
     .small-block img {
       width: 100%;
       height: auto;
       border-radius: 6px;
+      display: block;
     }
 
     .small-block figcaption {
