@@ -440,6 +440,21 @@
         margin-top: 0.5rem;
       }
     }
+
+	  .small-block {
+	  width: 220px;        /* adjust: 180px, 200px, 250px etc. */
+	  padding: 10px;
+	  border: 1px solid #ddd;
+	  border-radius: 8px;
+	  background: #fafafa;
+	  text-align: center;
+	}
+	
+	.small-block img {
+	  width: 100%;
+	  height: auto;
+	  border-radius: 6px;
+	}	  
   </style>
 </head>
 <body>
@@ -746,10 +761,11 @@
 			</ul>
 
 			<!-- Result images row -->
+			<div class="small-block">
 			  <figure class="project-figure">
-				<img src="animal-bargraph.png"
-					 alt="Bar graph showing true positive and false positive rates for multiple animal classes.">
-				<figcaption>True Positive vs. False Positive rates across 32 animal species.</figcaption>
+			    <img src="img/animal-bargraph.png"
+			         alt="Bar graph showing true positive and false positive rates for multiple animal classes.">
+			    <figcaption>TPR vs FPR</figcaption>
 			  </figure>
 			</div>
 
