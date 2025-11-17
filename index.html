@@ -419,6 +419,34 @@
       text-align: center;
     }
 
+    /* Centered small image block for animal project */
+    .image-center {
+      display: flex;
+      justify-content: center;
+      margin: 1rem 0;
+    }
+
+    .small-block {
+      width: 200px;
+      padding: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      border-radius: 8px;
+      background: #0f172a;
+      text-align: center;
+    }
+
+    .small-block img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    .small-block figcaption {
+      font-size: 0.75rem;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+
     /* Responsive */
     @media (max-width: 840px) {
       .hero {
@@ -440,17 +468,6 @@
         margin-top: 0.5rem;
       }
     }
-
-	 .small-block {
-	  width: 200px;
-	  padding: 10px;
-	  border: 1px solid #ddd;
-	  border-radius: 8px;
-	  background: #0f172a;
-	  float: right;
-	  margin-left: 1rem;
-	  margin-bottom: 1rem;
-	}
   </style>
 </head>
 <body>
@@ -494,7 +511,6 @@
 
           <div class="hero-actions">
             <a href="#projects" class="btn-primary">View Projects ↓</a>
-            <!-- Replace with your resume link -->
             <a href="https://drive.google.com/file/d/1J4PsvjuZ3GtUWUtLflGysFt1Dro-mNFB/view" class="btn-ghost" target="_blank" rel="noopener">
               Download Resume
             </a>
@@ -649,6 +665,7 @@
       <!-- PROJECTS -->
       <section id="projects">
         <div class="section-title">Selected Projects</div>
+
         <div class="card">
           <div class="card-header">
             <div class="card-title">Autonomous Hazard Detection in Construction Sites (NSF Funded)</div>
@@ -665,7 +682,6 @@
               <span class="tag">JSON APIs</span>
             </div>
             <div class="link-inline">
-              <!-- Replace with your poster / repo link -->
               <a href="https://ecommons.udayton.edu/stander_posters/3846" target="_blank" rel="noopener">
                 View project poster →
               </a>
@@ -710,71 +726,73 @@
             </div>
           </div>
         </div>
-		
-	    <div class="card">
-		  <div class="card-header">
-			<div class="card-title">IoT Smart Greenhouse Monitoring</div>
-			<div class="card-meta">IoT · Embedded Systems · Automation · Apr 2023</div>
-		  </div>
-		  <div class="card-body">
-			Deployed an IoT monitoring system using Arduino and ESP32 to collect sensor data every 30 seconds from
-			4 environmental parameters, triggering automated irrigation and climate control and reducing manual
-			monitoring by 90%.
-			<div class="tag-row">
-			  <span class="tag">Arduino</span>
-			  <span class="tag">ESP32</span>
-			  <span class="tag">IoT</span>
-			  <span class="tag">Automation</span>
-			</div>
-			<div class="link-inline">
-			  <a href="https://ecommons.udayton.edu/cgi/viewcontent.cgi?article=4164&amp;context=stander_posters"
-				 target="_blank" rel="noopener">
-				View project poster →
-			  </a>
-			</div>
-		  </div>
-		</div>
-		
-		<div class="card">
-		  <div class="card-header">
-		    <div class="card-title">Feature Extraction Comparator for Animal Classification</div>
-		    <div class="card-meta">Computer Vision · Feature Engineering · Pattern Recognition</div>
-		  </div>
-		
-		  <div class="card-body">
-		    Developed an animal image classification system using handcrafted feature extraction and neural
-		    classification to distinguish between 32 animal species, targeting applications in wildlife
-		    monitoring and livestock management.
-		
-		    <ul class="bullet-list" style="margin-top: 0.6rem;">
-		      <li>Used a dataset of 32 animal classes (e.g., antelope, bear, elephant, tiger, wolf, zebra) with
-		          50 training and 10 testing images per class (1600 train / 320 test images).</li>
-		      <li>Extracted Local Binary Pattern (LBP) features from resized 64×128 grayscale images, followed by
-		          Histogram of Oriented Gradients (HOG) for richer texture–shape descriptors.</li>
-		      <li>Trained a Multilayer Perceptron (MLP) with 3780 input features, 50 hidden units, and 32 output
-		          neurons to classify species based on the combined feature representation.</li>
-		      <li>Evaluated performance using true positive and false positive rates per class, visualized via
-		          comparative bar graphs to analyze strengths and confusion across species.</li>
-		    </ul>
-		
-		    <!-- centered small image -->
-		    <div class="image-center">
-		      <div class="small-block">
-		        <img src="animal-bargraph.png" alt="TPR vs FPR bar graph">
-		        <figcaption>TPR vs FPR</figcaption>
-		      </div>
-		    </div>
-		
-		    <div class="tag-row">
-		      <span class="tag">LBP</span>
-		      <span class="tag">HOG</span>
-		      <span class="tag">MLP</span>
-		      <span class="tag">Image Classification</span>
-		      <span class="tag">MATLAB / Python</span>
-		    </div>
-		  </div>
-		</div>
-		
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">IoT Smart Greenhouse Monitoring</div>
+            <div class="card-meta">IoT · Embedded Systems · Automation · Apr 2023</div>
+          </div>
+          <div class="card-body">
+            Deployed an IoT monitoring system using Arduino and ESP32 to collect sensor data every 30 seconds from
+            4 environmental parameters, triggering automated irrigation and climate control and reducing manual
+            monitoring by 90%.
+            <div class="tag-row">
+              <span class="tag">Arduino</span>
+              <span class="tag">ESP32</span>
+              <span class="tag">IoT</span>
+              <span class="tag">Automation</span>
+            </div>
+            <div class="link-inline">
+              <a href="https://ecommons.udayton.edu/cgi/viewcontent.cgi?article=4164&amp;context=stander_posters"
+                 target="_blank" rel="noopener">
+                View project poster →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Feature Extraction Comparator for Animal Classification</div>
+            <div class="card-meta">Computer Vision · Feature Engineering · Pattern Recognition</div>
+          </div>
+
+          <div class="card-body">
+            Developed an animal image classification system using handcrafted feature extraction and neural
+            classification to distinguish between 32 animal species, targeting applications in wildlife
+            monitoring and livestock management.
+
+            <ul class="bullet-list" style="margin-top: 0.6rem;">
+              <li>Used a dataset of 32 animal classes (e.g., antelope, bear, elephant, tiger, wolf, zebra) with
+                  50 training and 10 testing images per class (1600 train / 320 test images).</li>
+              <li>Extracted Local Binary Pattern (LBP) features from resized 64×128 grayscale images, followed by
+                  Histogram of Oriented Gradients (HOG) for richer texture–shape descriptors.</li>
+              <li>Trained a Multilayer Perceptron (MLP) with 3780 input features, 50 hidden units, and 32 output
+                  neurons to classify species based on the combined feature representation.</li>
+              <li>Evaluated performance using true positive and false positive rates per class, visualized via
+                  comparative bar graphs to analyze strengths and confusion across species.</li>
+            </ul>
+
+            <!-- Result image in a small centered box -->
+            <div class="image-center">
+              <figure class="small-block">
+                <!-- If your image is in an "img" folder, keep this path. 
+                     If it's beside index.html, change to src="animal-bargraph.png" -->
+                <img src="img/animal-bargraph.png" alt="TPR vs FPR bar graph for animal classes" />
+                <figcaption>TPR vs FPR</figcaption>
+              </figure>
+            </div>
+
+            <div class="tag-row">
+              <span class="tag">LBP</span>
+              <span class="tag">HOG</span>
+              <span class="tag">MLP</span>
+              <span class="tag">Image Classification</span>
+              <span class="tag">MATLAB / Python</span>
+            </div>
+          </div>
+        </div>
+
         <div class="card">
           <div class="card-header">
             <div class="card-title">E-TransInfo: Public Transport Scheduling System</div>
