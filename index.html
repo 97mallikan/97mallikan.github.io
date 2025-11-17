@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Anurag Mallik | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio of Anurag Mallik - Computer Vision, AI/ML, and Software Engineer." />
+  <style>
+    :root {
+      --bg: #060816;
+      --bg-elevated: #0b1020;
+      --accent: #4f46e5;
+      --accent-soft: rgba(79, 70, 229, 0.08);
+      --text: #e5e7eb;
+      --text-soft: #9ca3af;
+      --border: #1f2933;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.45);
+      --max-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.92), transparent);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: baseline;
+      gap: 0.55rem;
+    }
+
+    .nav-name {
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      font-size: 0.98rem;
+    }
+
+    .nav-tag {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
+
+    .nav-links a {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: all 0.16s ease-out;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      border-color: rgba(148, 163, 184, 0.45);
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+      padding-top: 2.5rem;
+      padding-bottom: 2rem;
+    }
+
+    .hero-main-title {
+      font-size: clamp(2.1rem, 3.1vw, 2.8rem);
+      font-weight: 650;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-main-title span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      max-width: 36rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .pill {
+      font-size: 0.72rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: radial-gradient(circle at top left, rgba(79, 70, 229, 0.18), transparent 60%);
+      color: #e5e7eb;
+      white-space: nowrap;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      font-size: 0.85rem;
+      padding: 0.6rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.16s ease-out;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #4f46e5, #06b6d4);
+      color: white;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.95);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      border-color: rgba(148, 163, 184, 0.55);
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(148, 163, 184, 0.9);
+      color: var(--text);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .meta-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #6b7280;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top, #111827 0, #020617 65%);
+      padding: 1.4rem 1.25rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-card-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-card-main {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-top: 0.5rem;
+    }
+
+    .hero-stat {
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+    }
+
+    .chip {
+      font-size: 0.72rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(75, 85, 99, 0.6);
+      color: #d1d5db;
+    }
+
+    /* Sections */
+    section {
+      padding-top: 2.25rem;
+    }
+
+    .section-title {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-soft);
+      margin-bottom: 1.1rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.75rem;
+    }
+
+    /* Cards */
+    .card {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.92);
+      padding: 1rem 1.1rem;
+    }
+
+    .card + .card {
+      margin-top: 0.8rem;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .card-meta {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .card-body {
+      font-size: 0.83rem;
+      color: var(--text-soft);
+      margin-top: 0.3rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.45rem;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      padding: 0.22rem 0.55rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #c7d2fe;
+      border: 1px solid rgba(79, 70, 229, 0.45);
+    }
+
+    .link-inline {
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+    }
+
+    .link-inline a {
+      color: #a5b4fc;
+    }
+
+    .link-inline a:hover {
+      text-decoration: underline;
+    }
+
+    /* Skills list */
+    .skills-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 0.9rem;
+      font-size: 0.83rem;
+    }
+
+    .skills-columns h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      margin-bottom: 0.4rem;
+    }
+
+    .skills-columns ul {
+      list-style: none;
+      color: var(--text-soft);
+    }
+
+    .skills-columns li::before {
+      content: "• ";
+      color: var(--accent);
+    }
+
+    /* Contact */
+    .contact {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 0.8rem;
+    }
+
+    .contact-item span {
+      color: #e5e7eb;
+    }
+
+    footer {
+      padding: 1.5rem 1.25rem 2rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .nav {
+        padding-inline: 1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links {
+        display: none;
+      }
+      .hero-card {
+        margin-top: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- NAVBAR -->
+    <header>
+      <nav class="nav">
+        <div class="nav-left">
+          <div class="nav-name">Anurag Mallik</div>
+          <div class="nav-tag">AI/ML • Computer Vision • Software</div>
+        </div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="shell">
+      <!-- HERO -->
+      <section class="hero" id="about">
+        <div>
+          <h1 class="hero-main-title">
+            Building intelligent <span>vision</span> and data-driven systems.
+          </h1>
+          <p class="hero-subtitle">
+            I’m Anurag, a computer engineer with experience across computer vision, AI/ML, and full-stack development.
+            I enjoy turning messy real-world data into robust, scalable systems — from hazard detection in construction
+            sites to large-scale analytics and automation.
+          </p>
+
+          <div class="hero-pill-row">
+            <div class="pill">Computer Vision &amp; Deep Learning</div>
+            <div class="pill">AI/ML Model Development</div>
+            <div class="pill">Full Stack &amp; Data Pipelines</div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn-primary">View Projects ↓</a>
+            <!-- Replace with your resume link -->
+            <a href="AnuragMallik_Resume.pdf" class="btn-ghost" target="_blank" rel="noopener">
+              Download Resume
+            </a>
+          </div>
+
+          <div class="meta-row">
+            <div>
+              <div class="meta-label">Currently</div>
+              <div>Graduate Assistant @ UD Vision Lab</div>
+            </div>
+            <div>
+              <div class="meta-label">Location</div>
+              <div>Dayton, Ohio, USA</div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="hero-card-title">Quick Snapshot</div>
+          <div class="hero-card-main">
+            I’ve worked on deep vision systems (YOLOv8, SAM, SRGAN), enterprise software at Tata Consultancy Services,
+            and data analytics pipelines using Spark, Hive, and MapReduce.
+          </div>
+          <div class="hero-stat-row">
+            <div class="hero-stat">3+ yrs software development</div>
+            <div class="hero-stat">3+ yrs computer vision research</div>
+          </div>
+          <div class="chip-row">
+            <div class="chip">Python</div>
+            <div class="chip">PyTorch</div>
+            <div class="chip">TensorFlow</div>
+            <div class="chip">OpenCV</div>
+            <div class="chip">Java / J2EE</div>
+            <div class="chip">SQL &amp; Spark</div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <div class="section-title">Skills</div>
+        <div class="skills-columns">
+          <div>
+            <h4>AI / ML</h4>
+            <ul>
+              <li>Neural Networks, CNNs, GANs/SRGAN</li>
+              <li>Object detection, segmentation, anomaly detection</li>
+              <li>Model evaluation (mAP, PSNR, SSIM, ROC)</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Computer Vision</h4>
+            <ul>
+              <li>YOLOv8, SAM, DINOv2, OpenCV</li>
+              <li>Image enhancement, low-light, deblurring</li>
+              <li>Feature extraction: HOG, SIFT, LBP, Harris</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Software &amp; Data</h4>
+            <ul>
+              <li>Python, Java, C++, MATLAB, SQL</li>
+              <li>J2EE, REST APIs, CI/CD (Jenkins, Git)</li>
+              <li>Hive, Spark, MapReduce, ETL pipelines</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Tools &amp; Platforms</h4>
+            <ul>
+              <li>Linux, CUDA (basic), Docker (basic)</li>
+              <li>Jupyter, VS Code, IntelliJ</li>
+              <li>Agile / SAFe collaboration</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <div class="section-title">Experience</div>
+        <div class="grid-2">
+          <div>
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title">Graduate Assistant — UD Vision Lab</div>
+                <div class="card-meta">May 2023 – Dec 2025 · Dayton, OH</div>
+              </div>
+              <div class="card-body">
+                Designing deep vision systems for traffic behavior analysis and hazardous object detection.
+                Worked on YOLOv8-based detection, Kalman tracking, low-light enhancement, and safety-critical
+                anomaly detection in construction sites.
+                <div class="tag-row">
+                  <span class="tag">Computer Vision</span>
+                  <span class="tag">YOLOv8</span>
+                  <span class="tag">Kalman Filter</span>
+                  <span class="tag">Python</span>
+                  <span class="tag">NSF-funded research</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title">System Engineer — Tata Consultancy Services</div>
+                <div class="card-meta">Sep 2019 – Dec 2021 · Kolkata, India</div>
+              </div>
+              <div class="card-body">
+                Modernized enterprise insurance platform in J2EE + Oracle, cutting average query response time by 40%
+                and eliminating 95% of system crashes. Integrated 100+ user stories into automated CI/CD pipelines and
+                collaborated across 4 Agile teams to deliver 6 major feature releases on time.
+                <div class="tag-row">
+                  <span class="tag">Java / J2EE</span>
+                  <span class="tag">SQL</span>
+                  <span class="tag">CI/CD</span>
+                  <span class="tag">System Design</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title">Education</div>
+              </div>
+              <div class="card-body">
+                <strong>University of Dayton</strong> — M.S. Computer Engineering (2022–2024)
+                <br />
+                Focus on computer vision, deep learning, and image processing. Thesis on deep vision-based driving
+                behavior analysis for roadside restricted area traffic control.
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title">What I’m looking for</div>
+              </div>
+              <div class="card-body">
+                Entry-level roles in:
+                <ul style="margin-top:0.3rem; padding-left:1rem;">
+                  <li>AI / ML Developer</li>
+                  <li>Computer Vision Engineer / Perception Engineer</li>
+                  <li>Full Stack / Software Engineer (ML-focused)</li>
+                  <li>Data Science / ML Engineer</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="section-title">Selected Projects</div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Autonomous Hazard Detection in Construction Sites (NSF Funded)</div>
+            <div class="card-meta">Computer Vision · Safety · Real-time</div>
+          </div>
+          <div class="card-body">
+            Designed a modular pipeline using SAM segmentation + DINOv2 feature encoding and a 3-layer classifier to
+            detect unattended tools and equipment across 500+ real construction site images, achieving 92% bounding box
+            precision and 87% validation accuracy across 20 hazard classes.
+            <div class="tag-row">
+              <span class="tag">SAM</span>
+              <span class="tag">DINOv2</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">JSON APIs</span>
+            </div>
+            <div class="link-inline">
+              <!-- Replace with your poster / repo link -->
+              <a href="https://ecommons.udayton.edu/stander_posters/3846" target="_blank" rel="noopener">
+                View project poster →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Deep Vision Based Driving Behavior Analysis System</div>
+            <div class="card-meta">YOLOv8 · Kalman Tracking · Low-light Enhancement</div>
+          </div>
+          <div class="card-body">
+            Developed an automated traffic monitoring system to analyze driving behavior in roadside restricted zones,
+            processing 30 fps streams through YOLOv8. Improved low-light detection using R-CLAHE and forecasted
+            trajectories 3–5 seconds ahead with Kalman filters, reducing false alarms by 60%.
+            <div class="tag-row">
+              <span class="tag">YOLOv8</span>
+              <span class="tag">R-CLAHE</span>
+              <span class="tag">Kalman Filter</span>
+            </div>
+            <div class="link-inline">
+              <a href="http://rave.ohiolink.edu/etdc/view?acc_num=dayton1722509767557759" target="_blank" rel="noopener">
+                Read thesis →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Image Super-Resolution with SRGAN</div>
+            <div class="card-meta">Generative Modeling · PSNR / SSIM</div>
+          </div>
+          <div class="card-body">
+            Built an SRGAN model to enhance satellite image resolution by 4×, improving PSNR by 3.2 dB and SSIM by 0.15
+            over bicubic interpolation. Designed the full training pipeline from data preprocessing to evaluation.
+            <div class="tag-row">
+              <span class="tag">SRGAN</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">Satellite Imagery</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">E-TransInfo: Public Transport Scheduling System</div>
+            <div class="card-meta">Android · Firebase · Real-time</div>
+          </div>
+          <div class="card-body">
+            Launched an Android app with 500+ downloads for real-time bus tracking and schedule visualization, reducing
+            average commuter wait time by 12 minutes based on a 200-user survey.
+            <div class="tag-row">
+              <span class="tag">Android</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">Maps / Realtime</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="section-title">Contact</div>
+        <div class="card">
+          <div class="card-body contact">
+            I’m actively looking for full-time opportunities in AI/ML, computer vision, and software engineering.
+            If you think I might be a good fit for your team, feel free to reach out.
+            <div class="contact-row">
+              <div class="contact-item">
+                <span>📧</span>
+                <span><a href="mailto:mallika1@udayton.edu">mallika1@udayton.edu</a></span>
+              </div>
+              <div class="contact-item">
+                <span>🔗</span>
+                <span><a href="https://www.linkedin.com/in/mallikanurag/" target="_blank" rel="noopener">LinkedIn</a></span>
+              </div>
+              <div class="contact-item">
+                <span>💻</span>
+                <span><a href="https://github.com/97mallikan" target="_blank" rel="noopener">GitHub</a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Anurag Mallik · Built with HTML &amp; CSS
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
