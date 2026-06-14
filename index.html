@@ -1336,7 +1336,10 @@
           throw new Error(data.error || "Chatbot service is unavailable.");
         }
 
-        loadingMessage.textContent = data.answer || "I could not find an answer in the portfolio context.";
+        const answer = data.answer || "";
+        loadingMessage.textContent = answer === "I could not find an answer in the portfolio context."
+          ? getLocalPortfolioAnswer(question) || answer
+          : answer || getLocalPortfolioAnswer(question) || "I could not find an answer in the portfolio context.";
       } catch (error) {
         loadingMessage.textContent = getLocalPortfolioAnswer(question) || "I could not reach the AI chatbot service right now. Please try again in a moment.";
       } finally {

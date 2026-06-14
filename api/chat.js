@@ -92,6 +92,12 @@ module.exports = async function handler(req, res) {
     });
   }
 
+  if (/\b(experience|work experience|worked|work history|job|jobs|tcs|tata consultancy|vision lab|graduate assistant)\b/i.test(userMessage)) {
+    return sendJson(res, 200, {
+      answer: "Anurag's work experience includes Graduate Assistant at the UD Vision Lab from May 2023 to Dec 2025, where he designed deep vision systems for traffic behavior analysis, hazardous object detection, YOLOv8 detection, Kalman tracking, low-light enhancement, and safety-critical anomaly detection. He also worked as a System Engineer at Tata Consultancy Services from Sep 2019 to Dec 2021, modernizing an enterprise insurance platform with J2EE and Oracle, improving query response time by 40 percent, reducing crashes by 95 percent, and supporting CI/CD delivery across Agile teams."
+    });
+  }
+
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
     return sendJson(res, 500, { error: "OPENAI_API_KEY is not configured on the server." });
@@ -125,8 +131,14 @@ Keep answers concise, friendly, and factual.`,
       return sendJson(res, openAiResponse.status, { error: errorMessage });
     }
 
+    const answer = data.output_text
+      || data.output?.flatMap((item) => item.content || [])
+        .map((content) => content.text || "")
+        .join("")
+        .trim();
+
     return sendJson(res, 200, {
-      answer: data.output_text || "I could not find an answer in the portfolio context."
+      answer: answer || "I could not find an answer in the portfolio context."
     });
   } catch (error) {
     return sendJson(res, 500, { error: "Unable to reach the chatbot service right now." });
