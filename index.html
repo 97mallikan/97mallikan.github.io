@@ -1272,6 +1272,36 @@
       chatbotSend.textContent = isLoading ? "..." : "Send";
     }
 
+    function getLocalPortfolioAnswer(question) {
+      const normalizedQuestion = question.toLowerCase();
+
+      if (/^(hi|hello|hey|good morning|good afternoon|good evening)\b[.!? ]*$/.test(normalizedQuestion)) {
+        return "Hi! I can answer questions about Anurag's projects, experience, skills, education, dataset work, research, and contact details.";
+      }
+
+      if (/\b(dataset|datasets|davis|annotated vehicle|vehicle image set)\b/.test(normalizedQuestion)) {
+        return "Yes. Anurag created DAVIS, the Dayton Annotated Vehicle Image Set. It supports vehicle detection and driving-behavior analysis research at the UD Vision Lab, with YOLO-format annotations for road traffic footage including cars, trucks, buses, pedestrians, occlusion, night scenes, motion blur, and variable angles. Dataset link: https://sites.google.com/a/udayton.edu/vasari1/research/earth-vision/davis";
+      }
+
+      if (/\b(project|projects)\b/.test(normalizedQuestion)) {
+        return "Anurag's selected projects include autonomous hazard detection in construction sites, deep vision based driving behavior analysis, SRGAN image super-resolution, Hopfield-network MNIST restoration, pedestrian detection using HOG and SVM, IoT smart greenhouse monitoring, DAVIS dataset work, E-TransInfo, coherent lowpass filters, and aviation data analysis with Spark, Hive, and MapReduce.";
+      }
+
+      if (/\b(skill|skills|technology|technologies|tools)\b/.test(normalizedQuestion)) {
+        return "Anurag's skills include Python, Java, C++, MATLAB, SQL, YOLOv8, SAM, DINOv2, OpenCV, PyTorch, TensorFlow, J2EE, REST APIs, Jenkins, Git, Hive, Spark, MapReduce, and ETL pipelines.";
+      }
+
+      if (/\b(experience|work|job|tcs|vision lab|graduate assistant)\b/.test(normalizedQuestion)) {
+        return "Anurag worked as a Graduate Assistant at the UD Vision Lab on deep vision systems for traffic behavior analysis and hazard detection. He also worked as a System Engineer at Tata Consultancy Services, modernizing an enterprise insurance platform with J2EE and Oracle.";
+      }
+
+      if (/\b(contact|email|linkedin|github)\b/.test(normalizedQuestion)) {
+        return "You can contact Anurag at mallika1@udayton.edu. LinkedIn: https://www.linkedin.com/in/mallikanurag/. GitHub: https://github.com/97mallikan/97mallikan.";
+      }
+
+      return "";
+    }
+
     chatbotToggle.addEventListener("click", () => {
       chatbot.classList.toggle("open");
       if (chatbot.classList.contains("open")) {
@@ -1308,7 +1338,7 @@
 
         loadingMessage.textContent = data.answer || "I could not find an answer in the portfolio context.";
       } catch (error) {
-        loadingMessage.textContent = `${error.message} If this site is hosted on GitHub Pages, set PORTFOLIO_CHAT_API_URL to your deployed serverless endpoint.`;
+        loadingMessage.textContent = getLocalPortfolioAnswer(question) || "I could not reach the AI chatbot service right now. Please try again in a moment.";
       } finally {
         setChatLoading(false);
         chatbotInput.focus();
