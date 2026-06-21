@@ -3,7 +3,7 @@ Name: Anurag Mallik.
 Portfolio focus: computer vision, AI/ML, software engineering, full-stack development, and data pipelines.
 Location: Dayton, Ohio, USA.
 Current role: Graduate Assistant at UD Vision Lab.
-Open to: entry-level AI/ML Developer, Computer Vision Engineer, Perception Engineer, ML-focused Software Engineer, Data Science, and ML Engineer roles.
+Best-fitting roles: AI/ML Developer, Computer Vision Engineer, Perception Engineer, ML-focused Software Engineer, Data Science, and ML Engineer.
 
 Skills:
 - AI/ML: neural networks, CNNs, GANs, SRGAN, object detection, segmentation, anomaly detection, model evaluation with mAP, PSNR, SSIM, and ROC.
@@ -16,6 +16,7 @@ Experience:
 - System Engineer, Tata Consultancy Services, Sep 2019 to Dec 2021, Kolkata, India. Modernized an enterprise insurance platform using J2EE and Oracle, reduced average query response time by 40 percent, eliminated 95 percent of system crashes, integrated 100+ user stories into CI/CD pipelines, and collaborated across 4 Agile teams to deliver 6 major feature releases.
 
 Education:
+- Ph.D. ongoing, with a research focus in computer vision.
 - University of Dayton, M.S. Computer Engineering, 2022 to 2024. Focused on computer vision, deep learning, and image processing. Thesis: deep vision-based driving behavior analysis for roadside restricted area traffic control.
 
 Dataset:
